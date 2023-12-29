@@ -1,9 +1,12 @@
-SkyUnix Data Management API Dokumentation
+# SkyUnix Data Management API Documentation
+
 Die SkyUnix Data Management API ist eine Java-Bibliothek, die entwickelt wurde, um die effiziente Verwaltung und Speicherung von Daten für das SkyUnix.de-Netzwerk zu erleichtern. Diese API ersetzt herkömmliche MySQL-Datenbanken und Standardkonfigurationsdateien durch benutzerdefinierte Lösungen und bietet Entwicklern eine unkomplizierte Schnittstelle für Aufgaben im Bereich Datenmanagement.
 
+## Java Beispielcode:
 
-java:
+```java
 package com.github.jitpack;
+
 public class AppCenterSimpleSet {
     public static void main(String[] args) {
         // Initialisierung der API-Komponenten
@@ -15,43 +18,28 @@ public class AppCenterSimpleSet {
     }
 }
 
-
-gradle:
 dependencyResolutionManagement {
-		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-		repositories {
-			mavenCentral()
-			maven { url 'https://jitpack.io' }
-		}
-	}
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
 
 dependencies {
-	        implementation 'com.github.Balanceakt:DBCenter:Tag'
-	}
+    implementation 'com.github.Balanceakt:DBCenter:Tag'
+}
 
 
-maven:
 <repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-	</repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
 
 <dependency>
-	    <groupId>com.github.Balanceakt</groupId>
-	    <artifactId>DBCenter</artifactId>
-	    <version>Tag</version>
-	</dependency>
-
-
-sbt:
-resolvers += "jitpack" at "https://jitpack.io"
-
-libraryDependencies += "com.github.Balanceakt" % "DBCenter" % "Tag"	
-
-
-leiningen:
-:repositories [["jitpack" "https://jitpack.io"]]
-
-:dependencies [[com.github.Balanceakt/DBCenter "Tag"]]	
+    <groupId>com.github.Balanceakt</groupId>
+    <artifactId>DBCenter</artifactId>
+    <version>Tag</version>
+</dependency>
