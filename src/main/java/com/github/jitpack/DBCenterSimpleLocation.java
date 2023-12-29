@@ -3,6 +3,8 @@ package com.github.jitpack;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitTask;
 
 import java.io.*;
 import java.util.Properties;
@@ -11,18 +13,18 @@ public class DBCenterSimpleLocation {
     public DBCenterSimpleLocation() {
         System.out.println("Current working directory: " + System.getProperty("user.dir"));
 
-        File folder = new File(FilePath.folderPath);
+        File folder = new File(DBCenterFilePath.folderPath);
         if (!folder.exists()) {
             if (folder.mkdirs()) {
-                System.out.println("Folder created: " + FilePath.folderPath);
+                System.out.println("Folder created: " + DBCenterFilePath.folderPath);
             } else {
-                System.err.println("Failed to create folder: " + FilePath.folderPath);
+                System.err.println("Failed to create folder: " + DBCenterFilePath.folderPath);
             }
         }
     }
 
     public void saveLocation(String table, String key, Location location) {
-        File settingFile = new File(FilePath.folderPath, table);
+        File settingFile = new File(DBCenterFilePath.folderPath, table);
         Properties properties = new Properties();
 
         try (InputStream input = new FileInputStream(settingFile)) {
@@ -48,13 +50,14 @@ public class DBCenterSimpleLocation {
     }
 
     public Location loadLocation(String table, String key) {
-        File settingFile = new File(FilePath.folderPath, table);
+        File settingFile = new File(DBCenterFilePath.folderPath, table);
         Properties properties = new Properties();
 
         try (InputStream input = new FileInputStream(settingFile)) {
             properties.load(input);
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
 
         String worldName = properties.getProperty(key + ".world");
@@ -64,13 +67,27 @@ public class DBCenterSimpleLocation {
         float yaw = Float.parseFloat(properties.getProperty(key + ".yaw"));
         float pitch = Float.parseFloat(properties.getProperty(key + ".pitch"));
 
-        World world = Bukkit.getWorld(worldName);
+        System.out.println("Loaded data:");
+        System.out.println("worldName: " + worldName);
+        System.out.println("x: " + x);
+        System.out.println("y: " + y);
+        System.out.println("z: " + z);
+        System.out.println("yaw: " + yaw);
+        System.out.println("pitch: " + pitch);
 
-        if (world != null) {
-            return new Location(world, x, y, z, yaw, pitch);
-        } else {
+        if (Bukkit.getWorld(worldName) == null) {
             System.err.println("World not found: " + worldName);
             return null;
         }
+
+        BukkitTask bukkitTask = Bukkit.getScheduler().runTaskLater(DBCenter.getPlugin(), () -> {
+            World world = Bukkit.getWorld(worldName);
+
+            if (world != null) {
+                Location location = new Location(world, x, y, z, yaw, pitch);
+            }
+        }, 20L);
+
+        return null;
     }
 }

@@ -8,17 +8,17 @@ public class DBCenterSimpleSetArgs {
     public DBCenterSimpleSetArgs() {
         System.out.println("Current working directory: " + System.getProperty("user.dir"));
 
-        File folder = new File(FilePath.folderPath);
+        File folder = new File(DBCenterFilePath.folderPath);
         if (!folder.exists()) {
             if (folder.mkdirs()) {
-                System.out.println("Folder created: " + FilePath.folderPath);
+                System.out.println("Folder created: " + DBCenterFilePath.folderPath);
             } else {
-                System.err.println("Failed to create folder: " + FilePath.folderPath);
+                System.err.println("Failed to create folder: " + DBCenterFilePath.folderPath);
             }
         }
     }
     public void setSimpleArgValue(final String table, final String key, final String value) {
-        File settingFile = new File(FilePath.folderPath, table);
+        File settingFile = new File(DBCenterFilePath.folderPath, table);
         Properties properties = new Properties();
 
         try (InputStream input = new FileInputStream(settingFile)) {
@@ -35,7 +35,7 @@ public class DBCenterSimpleSetArgs {
         }
     }
     public void setSimpleArgsValues(final String table, final String key, final List<String> values) {
-        File settingFile = new File(FilePath.folderPath, table);
+        File settingFile = new File(DBCenterFilePath.folderPath, table);
         Properties properties = new Properties();
 
         if (!settingFile.exists()) {

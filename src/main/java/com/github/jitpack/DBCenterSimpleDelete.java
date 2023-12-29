@@ -5,7 +5,7 @@ import java.util.Properties;
 
 public class DBCenterSimpleDelete {
     public void deleteEntry(final String table, final String key) {
-        File settingFile = new File(FilePath.folderPath, table);
+        File settingFile = new File(DBCenterFilePath.folderPath, table);
         Properties properties = new Properties();
 
         try (InputStream input = new FileInputStream(settingFile)) {
@@ -22,7 +22,7 @@ public class DBCenterSimpleDelete {
     }
 
     public void deleteFile(final String table) {
-        File fileToDelete = new File(FilePath.folderPath, table);
+        File fileToDelete = new File(DBCenterFilePath.folderPath, table);
 
         try {
             if (fileToDelete.exists() && fileToDelete.delete()) {

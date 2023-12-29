@@ -9,18 +9,18 @@ import java.util.Properties;
 public class DBCenterSimpleConvertArgsWithColorCode {
     public DBCenterSimpleConvertArgsWithColorCode() {
         System.out.println("Current working directory: " + System.getProperty("user.dir"));
-        File folder = new File(FilePath.folderPath);
+        File folder = new File(DBCenterFilePath.folderPath);
         if (!folder.exists()) {
             if (folder.mkdirs()) {
-                System.out.println("Folder created: " + FilePath.folderPath);
+                System.out.println("Folder created: " + DBCenterFilePath.folderPath);
             } else {
-                System.err.println("Failed to create folder: " + FilePath.folderPath);
+                System.err.println("Failed to create folder: " + DBCenterFilePath.folderPath);
             }
         }
     }
 
     public String readColorCodes(String table, String key, int argIndex) {
-        File settingFile = new File(FilePath.folderPath, table);
+        File settingFile = new File(DBCenterFilePath.folderPath, table);
         Properties properties = new Properties();
 
         try (InputStream input = new FileInputStream(settingFile)) {
