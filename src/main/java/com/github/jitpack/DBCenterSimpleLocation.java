@@ -8,6 +8,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 import java.io.*;
 import java.util.Properties;
+import java.util.concurrent.CompletableFuture;
 
 public class DBCenterSimpleLocation {
     public DBCenterSimpleLocation() {
@@ -75,19 +76,13 @@ public class DBCenterSimpleLocation {
         System.out.println("yaw: " + yaw);
         System.out.println("pitch: " + pitch);
 
-        if (Bukkit.getWorld(worldName) == null) {
+        World world = Bukkit.getWorld(worldName);
+
+        if (world == null) {
             System.err.println("World not found: " + worldName);
             return null;
         }
 
-        BukkitTask bukkitTask = Bukkit.getScheduler().runTaskLater(DBCenter.getPlugin(), () -> {
-            World world = Bukkit.getWorld(worldName);
-
-            if (world != null) {
-                Location location = new Location(world, x, y, z, yaw, pitch);
-            }
-        }, 20L);
-
-        return null;
+        return new Location(world, x, y, z, yaw, pitch);
     }
 }

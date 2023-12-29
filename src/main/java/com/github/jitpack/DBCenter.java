@@ -1,20 +1,6 @@
 package com.github.jitpack;
-
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.text.spi.CollatorProvider;
-
 public class DBCenter extends JavaPlugin {
-
-    private static Plugin pluginInstance;
-    public static void setPluginInstance(Plugin plugin) {
-        pluginInstance = plugin;
-    }
-    public static Plugin getPlugin() {
-        return pluginInstance;
-    }
-
     @Override
     public void onEnable() {
         init();
