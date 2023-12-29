@@ -2,14 +2,12 @@ package com.github.jitpack;
 
 import utils.FilePath;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.util.List;
 import java.util.Properties;
 
-public class DBCenterSimpleReadColorCode {
-    public DBCenterSimpleReadColorCode() {
+public class DBCenterSimpleReadArgs {
+    public DBCenterSimpleReadArgs() {
         System.out.println("Current working directory: " + System.getProperty("user.dir"));
         File folder = new File(FilePath.folderPath);
         if (!folder.exists()) {
@@ -20,9 +18,8 @@ public class DBCenterSimpleReadColorCode {
             }
         }
     }
-
-    public String readColorCodes(String settingName, String key, int argIndex) {
-        File settingFile = new File(FilePath.folderPath, settingName);
+    public String readSimpleArgs(String table, String key, int argIndex) {
+        File settingFile = new File(FilePath.folderPath, table);
         Properties properties = new Properties();
 
         try (InputStream input = new FileInputStream(settingFile)) {
@@ -33,7 +30,7 @@ public class DBCenterSimpleReadColorCode {
             String[] valuesArray = value.split(",");
 
             if (argIndex >= 0 && argIndex < valuesArray.length) {
-                return convertColorCodes(valuesArray[argIndex]);
+                return valuesArray[argIndex];
             } else {
                 System.out.println("Index out of range for key: " + key);
                 return null;
@@ -42,9 +39,5 @@ public class DBCenterSimpleReadColorCode {
             e.printStackTrace();
             return null;
         }
-    }
-
-    private String convertColorCodes(String input) {
-        return input.replace("&", "§");
     }
 }

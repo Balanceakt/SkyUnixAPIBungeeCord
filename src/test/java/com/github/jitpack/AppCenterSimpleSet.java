@@ -1,17 +1,13 @@
 package com.github.jitpack;
 
-import java.util.Arrays;
-import java.util.List;
-
-import static java.lang.System.*;
-
 public class AppCenterSimpleSet
 {
     public static void main(String[] args) {
         DBCenterSimpleDelete dbCenterDelete = new DBCenterSimpleDelete();
-        DBCenterSimpleSet dbCenterSet = new DBCenterSimpleSet();
-        DBCenterSimpleRead dbCenterRead = new DBCenterSimpleRead();
-        DBCenterSimpleReadColorCode dbCenterSimpleReadColorCode = new DBCenterSimpleReadColorCode();
+        DBCenterSimpleSetArgs dbCenterSet = new DBCenterSimpleSetArgs();
+        DBCenterSimpleReadArgs dbCenterRead = new DBCenterSimpleReadArgs();
+        DBCenterSimpleConvertArgsWithColorCode dbCenterSimpleReadColorCode = new DBCenterSimpleConvertArgsWithColorCode();
+        DBCenterSimpleLocation dbCenterSimpleLocation = new DBCenterSimpleLocation();
 
         //dbCenterSet.setSimpleArgValue("color", "red", "&4Test");
 
@@ -19,9 +15,9 @@ public class AppCenterSimpleSet
         //dbCenterSet.setSimpleArgsValues("builder", "lobby", valuesList);
 
         //dbCenterDelete.deleteEntry("builder", "lobby");
+        //dbCenterDelete.deleteFile("builder");
 
         //System.out.println(dbCenterRead.readSimpleArgs("builder", "lobby", 0));
-
         //System.out.println(dbCenterSimpleReadColorCode.readColorCodes("color", "red", 0));
     }
 }

@@ -6,8 +6,8 @@ import java.io.*;
 import java.util.Properties;
 
 public class DBCenterSimpleDelete {
-    public void deleteEntry(final String settingName, final String key) {
-        File settingFile = new File(FilePath.folderPath, settingName);
+    public void deleteEntry(final String table, final String key) {
+        File settingFile = new File(FilePath.folderPath, table);
         Properties properties = new Properties();
 
         try (InputStream input = new FileInputStream(settingFile)) {
@@ -20,6 +20,20 @@ public class DBCenterSimpleDelete {
             properties.store(output, "Updated by deleteEntry method");
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void deleteFile(final String table) {
+        File fileToDelete = new File(FilePath.folderPath, table);
+
+        try {
+            if (fileToDelete.exists() && fileToDelete.delete()) {
+                System.out.println("File deleted: " + fileToDelete.getAbsolutePath());
+            } else {
+                System.err.println("Failed to delete file: " + fileToDelete.getAbsolutePath());
+            }
+        } catch (SecurityException e) {
+            System.err.println("SecurityException: " + e.getMessage());
         }
     }
 }

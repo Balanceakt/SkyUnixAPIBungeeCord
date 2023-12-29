@@ -6,8 +6,8 @@ import java.io.*;
 import java.util.List;
 import java.util.Properties;
 
-public class DBCenterSimpleSet {
-    public DBCenterSimpleSet() {
+public class DBCenterSimpleSetArgs {
+    public DBCenterSimpleSetArgs() {
         System.out.println("Current working directory: " + System.getProperty("user.dir"));
 
         File folder = new File(FilePath.folderPath);
@@ -19,8 +19,8 @@ public class DBCenterSimpleSet {
             }
         }
     }
-    public void setSimpleArgValue(final String settingName, final String key, final String value) {
-        File settingFile = new File(FilePath.folderPath, settingName);
+    public void setSimpleArgValue(final String table, final String key, final String value) {
+        File settingFile = new File(FilePath.folderPath, table);
         Properties properties = new Properties();
 
         try (InputStream input = new FileInputStream(settingFile)) {
@@ -36,8 +36,8 @@ public class DBCenterSimpleSet {
             e.printStackTrace();
         }
     }
-    public void setSimpleArgsValues(final String settingName, final String key, final List<String> values) {
-        File settingFile = new File(FilePath.folderPath, settingName);
+    public void setSimpleArgsValues(final String table, final String key, final List<String> values) {
+        File settingFile = new File(FilePath.folderPath, table);
         Properties properties = new Properties();
 
         if (!settingFile.exists()) {
