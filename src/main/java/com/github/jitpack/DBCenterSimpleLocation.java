@@ -23,8 +23,8 @@ public class DBCenterSimpleLocation {
         }
     }
 
-    public void saveLocation(String settingName, String key, Location location) {
-        File settingFile = new File(FilePath.folderPath, settingName);
+    public void saveLocation(String table, String key, Location location) {
+        File settingFile = new File(FilePath.folderPath, table);
         Properties properties = new Properties();
 
         try (InputStream input = new FileInputStream(settingFile)) {
@@ -49,8 +49,8 @@ public class DBCenterSimpleLocation {
         }
     }
 
-    public Location loadLocation(String settingName, String key) {
-        File settingFile = new File(FilePath.folderPath, settingName);
+    public Location loadLocation(String table, String key) {
+        File settingFile = new File(FilePath.folderPath, table);
         Properties properties = new Properties();
 
         try (InputStream input = new FileInputStream(settingFile)) {
