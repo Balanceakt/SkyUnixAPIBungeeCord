@@ -1,4 +1,4 @@
-package utils;
+package com.github.jitpack;
 
 import java.io.File;
 

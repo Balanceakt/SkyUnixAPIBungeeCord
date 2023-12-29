@@ -1,7 +1,5 @@
 package com.github.jitpack;
 
-import utils.FilePath;
-
 import java.io.*;
 import java.util.Properties;
 

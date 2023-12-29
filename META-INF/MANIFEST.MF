@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
 Main-Class: DBCenter
+Class-Path: com.github.jitpack.DBCenter
 

@@ -1,13 +1,21 @@
 package com.github.jitpack;
 
-public class DBCenter {
+import org.bukkit.plugin.java.JavaPlugin;
 
-    public static void main(String[] args) {
+public class DBCenter extends JavaPlugin {
+
+    @Override
+    public void onEnable() {
         init();
-        System.out.println("DBCenter wird gestartet...");
+        getLogger().info("DBCenter wird gestartet...");
     }
 
-    public static void init() {
+    @Override
+    public void onDisable() {
+        getLogger().info("DBCenter wird gestoppt...");
+    }
+
+    private void init() {
         DBCenterSimpleConvertArgsWithColorCode simpleSetConvertArgs = new DBCenterSimpleConvertArgsWithColorCode();
         DBCenterSimpleDelete simpleDelete = new DBCenterSimpleDelete();
         DBCenterSimpleLocation simpleLocation = new DBCenterSimpleLocation();
@@ -21,8 +29,7 @@ public class DBCenter {
         registerClass(simpleReadArgs);
     }
 
-    private static void registerClass(Object instance) {
-        System.out.println("Klasse registriert: " + instance.getClass().getName());
-        // Hier kannst du weitere Aktionen für die registrierten Klassen durchführen
+    private void registerClass(Object instance) {
+        getLogger().info("Klasse registriert: " + instance.getClass().getName());
     }
 }
