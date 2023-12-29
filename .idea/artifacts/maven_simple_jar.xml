@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="maven-simple:jar">
+    <output-path>$USER_HOME$/Desktop/Models/Dev-Server/plugins</output-path>
+    <root id="archive" name="maven-simple.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="maven-simple" />
+    </root>
+  </artifact>
+</component>
