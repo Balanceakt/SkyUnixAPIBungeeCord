@@ -54,12 +54,22 @@ public class DBCenterSimpleLocation {
         File settingFile = new File(DBCenterFilePath.folderPath, table);
         Properties properties = new Properties();
 
+        if (!settingFile.exists()) {
+            System.err.println("File not found: " + settingFile.getPath());
+            return null;
+        }
+
         try (InputStream input = new FileInputStream(settingFile)) {
             properties.load(input);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
+
+        System.out.println("Loaded from file: " + settingFile.getAbsolutePath());
+
+        System.out.println("Existing properties:");
+        properties.forEach((k, v) -> System.out.println("Key: " + k + ", Value: " + v));
 
         String worldName = properties.getProperty(key + ".world");
         double x = Double.parseDouble(properties.getProperty(key + ".x"));
