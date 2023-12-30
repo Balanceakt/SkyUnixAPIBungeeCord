@@ -23,7 +23,6 @@ public class DBCenterSimpleDelete {
 
     public void deleteFile(final String table) {
         File fileToDelete = new File(DBCenterFilePath.folderPath, table);
-
         try {
             if (fileToDelete.exists() && fileToDelete.delete()) {
                 System.out.println("File deleted: " + fileToDelete.getAbsolutePath());

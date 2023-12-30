@@ -18,7 +18,6 @@ public class DBCenterSimpleConvertArgsWithColorCode {
             }
         }
     }
-
     public String readColorCodes(String table, String key, int argIndex) {
         File settingFile = new File(DBCenterFilePath.folderPath, table);
         Properties properties = new Properties();
@@ -41,7 +40,6 @@ public class DBCenterSimpleConvertArgsWithColorCode {
             return null;
         }
     }
-
     private String convertColorCodes(String input) {
         return input.replace("&", "§");
     }

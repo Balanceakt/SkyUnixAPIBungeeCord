@@ -6,26 +6,24 @@ public class DBCenter extends JavaPlugin {
         init();
         getLogger().info("DBCenter wird gestartet...");
     }
-
     @Override
     public void onDisable() {
         getLogger().info("DBCenter wird gestoppt...");
     }
-
     private void init() {
         DBCenterSimpleConvertArgsWithColorCode simpleSetConvertArgs = new DBCenterSimpleConvertArgsWithColorCode();
         DBCenterSimpleDelete simpleDelete = new DBCenterSimpleDelete();
         DBCenterSimpleLocation simpleLocation = new DBCenterSimpleLocation();
         DBCenterSimpleSetArgs simpleSetArgs = new DBCenterSimpleSetArgs();
         DBCenterSimpleReadArgs simpleReadArgs = new DBCenterSimpleReadArgs();
-
+        DBCenterHeadBuilder simpleHeadBuilder = new DBCenterHeadBuilder();
         registerClass(simpleSetArgs);
         registerClass(simpleDelete);
         registerClass(simpleLocation);
         registerClass(simpleSetConvertArgs);
         registerClass(simpleReadArgs);
+        registerClass(simpleHeadBuilder);
     }
-
     private void registerClass(Object instance) {
         getLogger().info("Klasse registriert: " + instance.getClass().getName());
     }

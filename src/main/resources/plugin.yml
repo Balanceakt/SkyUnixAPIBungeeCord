@@ -1,5 +1,5 @@
 name: DBCenter
-version: 1.0.4
+version: 1.0.5
 main: com.github.jitpack.DBCenter
 api-version: 1.20
 description: Skyunix-API
