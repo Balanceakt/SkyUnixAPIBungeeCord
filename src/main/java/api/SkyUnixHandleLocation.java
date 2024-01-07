@@ -1,35 +1,32 @@
-package com.github.jitpack;
+package api;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+import utils.FilePath;
+import utils.FolderHandle;
 
 import java.io.*;
 import java.util.Properties;
 
-public class DBCenterSimpleLocation {
-    public DBCenterSimpleLocation() {
-        System.out.println("Current working directory: " + System.getProperty("user.dir"));
-        File folder = new File(DBCenterFilePath.folderPath);
-        if (!folder.exists()) {
-            if (folder.mkdirs()) {
-                System.out.println("Folder created: " + DBCenterFilePath.folderPath);
-            } else {
-                System.err.println("Failed to create folder: " + DBCenterFilePath.folderPath);
-            }
-        }
+public class SkyUnixHandleLocation {
+    public SkyUnixHandleLocation() {
+        FolderHandle.folderCheck(FilePath.folderPath);
     }
 
-    public void saveLocation(String table, String key, Location location) {
-        File settingFile = new File(DBCenterFilePath.folderPath, table);
+    public static void saveLocation(String folder, String table, String key, Location location) {
+        File folderFile = new File(FilePath.folderPath, folder);
+        File settingFile = new File(folderFile, table);
         Properties properties = new Properties();
+
         try {
-            if (!settingFile.exists()) {
-                if (settingFile.createNewFile()) {
-                    System.out.println("File created: " + settingFile.getPath());
-                } else {
-                    System.err.println("Failed to create file: " + settingFile.getPath());
-                }
+            if (!folderFile.exists() && !folderFile.mkdirs()) {
+                System.err.println("Failed to create folder: " + folderFile.getAbsolutePath());
+                return;
+            }
+            if (!settingFile.exists() && !settingFile.createNewFile()) {
+                System.err.println("Failed to create file: " + settingFile.getPath());
+                return;
             }
             try (InputStream input = new FileInputStream(settingFile)) {
                 properties.load(input);
@@ -45,17 +42,19 @@ public class DBCenterSimpleLocation {
             properties.setProperty(locationKey + ".pitch", String.valueOf(location.getPitch()));
             try (OutputStream output = new FileOutputStream(settingFile)) {
                 properties.store(output, "Updated by saveLocation method");
+                System.out.println("Location saved successfully: " + settingFile.getAbsolutePath());
             } catch (IOException e) {
-                e.printStackTrace();
+                System.err.println("Failed to save location: " + e.getMessage());
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("An error occurred: " + e.getMessage());
         }
     }
-    public Location loadLocation(String table, String key) {
-        File settingFile = new File(DBCenterFilePath.folderPath, table);
-        Properties properties = new Properties();
 
+    public Location loadLocation(String folder, String table, String key) {
+        File folderFile = new File(FilePath.folderPath, folder);
+        File settingFile = new File(folderFile, table);
+        Properties properties = new Properties();
         if (!settingFile.exists()) {
             System.err.println("File not found: " + settingFile.getPath());
             return null;
@@ -63,7 +62,7 @@ public class DBCenterSimpleLocation {
         try (InputStream input = new FileInputStream(settingFile)) {
             properties.load(input);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Failed to load location: " + e.getMessage());
             return null;
         }
         System.out.println("Loaded from file: " + settingFile.getAbsolutePath());

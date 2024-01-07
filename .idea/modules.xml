@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/maven-simple.iml" filepath="$PROJECT_DIR$/maven-simple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/customerapi.iml" filepath="$PROJECT_DIR$/customerapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/skyunix-api-balanceakt.iml" filepath="$PROJECT_DIR$/skyunix-api-balanceakt.iml" />
     </modules>
   </component>
 </project>

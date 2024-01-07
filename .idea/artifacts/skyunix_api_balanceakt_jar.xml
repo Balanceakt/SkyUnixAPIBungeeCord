@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="skyunix-api-balanceakt:jar">
+    <output-path>$USER_HOME$/Desktop/Models/Dev-Server/plugins</output-path>
+    <root id="archive" name="skyunix-api-balanceakt.jar">
+      <element id="module-output" name="skyunix-api-balanceakt" />
+    </root>
+  </artifact>
+</component>

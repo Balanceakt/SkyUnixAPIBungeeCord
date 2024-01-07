@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.jitpack</groupId>
-    <artifactId>maven-simple</artifactId>
-    <version>1.0.5</version>
+    <artifactId>skyunix-api-balanceakt</artifactId>
+    <version>1.0.6</version>
     <packaging>jar</packaging>
-    <name>DBCenter</name>
+    <name>SkyUnixAPI</name>
 
     <repositories>
         <repository>
@@ -76,7 +76,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.github.jitpack.DBCenter</mainClass>
+                                    <mainClass>com.github.jitpack.MainSkyUnix</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
