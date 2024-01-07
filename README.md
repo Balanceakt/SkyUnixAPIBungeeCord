@@ -39,6 +39,6 @@ dependencies {
 
 	<dependency>
 	    <groupId>com.github.Balanceakt</groupId>
-	    <artifactId>SkyUnixAPI</artifactId>
+	    <artifactId>SkyUnixAPIBungeecord</artifactId>
 	    <version>1.0.6</version>
 	</dependency>
