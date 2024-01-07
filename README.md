@@ -37,8 +37,8 @@ dependencies {
     </repository>
 </repositories>
 
-<dependency>
-    <groupId>com.github.Balanceakt</groupId>
-    <artifactId>DBCenter</artifactId>
-    <version>Tag</version>
-</dependency>
+	<dependency>
+	    <groupId>com.github.Balanceakt</groupId>
+	    <artifactId>SkyUnixAPI</artifactId>
+	    <version>1.0.6</version>
+	</dependency>
