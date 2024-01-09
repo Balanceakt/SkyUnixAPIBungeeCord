@@ -5,17 +5,13 @@ Die SkyUnix Data Management API ist eine Java-Bibliothek, die entwickelt wurde, 
 ## Java Beispielcode:
 
 ```java
-package com.github.jitpack;
+        SkyUnixHandleDelete simpleDelete = new SkyUnixHandleDelete();
+        SkyUnixHandleLocation simpleLocation = new SkyUnixHandleLocation();
+        SkyUnixHandleArgs simpleReadArgs = new SkyUnixHandleArgs();
+        SkyUnixHandleUpdate simplUpdateArgs = new SkyUnixHandleUpdate();
+        SkyUnixHandleNullCheck simpleNullCheck = new SkyUnixHandleNullCheck();
+        SkyUnixHandlePlaceholder simplePlaceHolder = new SkyUnixHandlePlaceholder();
 
-public class AppCenterSimpleSet {
-    public static void main(String[] args) {
-        // Initialisierung der API-Komponenten
-        DBCenterSimpleDelete dbCenterDelete = new DBCenterSimpleDelete();
-        DBCenterSimpleSetArgs dbCenterSet = new DBCenterSimpleSetArgs();
-        DBCenterSimpleReadArgs dbCenterRead = new DBCenterSimpleReadArgs();
-        DBCenterSimpleConvertArgsWithColorCode dbCenterSimpleReadColorCode = new DBCenterSimpleConvertArgsWithColorCode();
-    }
-}
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
