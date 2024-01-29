@@ -10,18 +10,18 @@ import java.util.Properties;
 
 public class SkyUnixHandleNullCheck {
 
-    public static boolean isFolderExists(String folder) {
+    public boolean isFolderExists(String folder) {
         File folderFile = new File(FilePath.folderPath, folder);
         return folderFile.exists() && folderFile.isDirectory();
     }
 
-    public static boolean isTableExists(String folder, String table) {
+    public boolean isTableExists(String folder, String table) {
         File folderFile = new File(FilePath.folderPath, folder);
         File settingFile = new File(folderFile, table);
         return folderFile.exists() && settingFile.exists();
     }
 
-    public static boolean isKeyExists(String folder, String table, String key) {
+    public boolean isKeyExists(String folder, String table, String key) {
         File folderFile = new File(FilePath.folderPath, folder);
         File settingFile = new File(folderFile, table);
         Properties properties = new Properties();
@@ -38,7 +38,7 @@ public class SkyUnixHandleNullCheck {
         }
     }
 
-    public static boolean isValueExists(String folder, String table, String key, int indexToCheck) {
+    public boolean isValueExists(String folder, String table, String key, int indexToCheck) {
         File folderFile = new File(FilePath.folderPath, folder);
         File settingFile = new File(folderFile, table);
         Properties properties = new Properties();

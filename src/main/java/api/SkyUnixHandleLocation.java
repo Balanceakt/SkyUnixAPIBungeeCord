@@ -14,7 +14,7 @@ public class SkyUnixHandleLocation {
         FolderHandle.folderCheck(FilePath.folderPath);
     }
 
-    public static void saveLocation(String folder, String table, String key, Location location) {
+    public void saveLocation(String folder, String table, String key, Location location) {
         File folderFile = new File(FilePath.folderPath, folder);
         File settingFile = new File(folderFile, table);
         Properties properties = new Properties();
