@@ -1,22 +1,17 @@
-# SkyUnix Data API
+# SkyUnixBungeeCord Data API
 
 Die SkyUnix Data Management API ist eine Java-Bibliothek, die entwickelt wurde, um die effiziente Verwaltung und Speicherung von Daten für das SkyUnix.de-Netzwerk zu erleichtern. Diese API ersetzt herkömmliche MySQL-Datenbanken und Standardkonfigurationsdateien durch benutzerdefinierte Lösungen und bietet Entwicklern eine unkomplizierte Schnittstelle für Aufgaben im Bereich Datenmanagement.
 
 ## Java Beispielcode:
 
 ```java
-package com.github.jitpack;
+        SkyUnixHandleDelete simpleDelete = new SkyUnixHandleDelete();
+        SkyUnixHandleLocation simpleLocation = new SkyUnixHandleLocation();
+        SkyUnixHandleArgs simpleReadArgs = new SkyUnixHandleArgs();
+        SkyUnixHandleUpdate simplUpdateArgs = new SkyUnixHandleUpdate();
+        SkyUnixHandleNullCheck simpleNullCheck = new SkyUnixHandleNullCheck();
+        SkyUnixHandlePlaceholder simplePlaceHolder = new SkyUnixHandlePlaceholder();
 
-public class AppCenterSimpleSet {
-    public static void main(String[] args) {
-        // Initialisierung der API-Komponenten
-        DBCenterSimpleDelete dbCenterDelete = new DBCenterSimpleDelete();
-        DBCenterSimpleSetArgs dbCenterSet = new DBCenterSimpleSetArgs();
-        DBCenterSimpleReadArgs dbCenterRead = new DBCenterSimpleReadArgs();
-        DBCenterSimpleConvertArgsWithColorCode dbCenterSimpleReadColorCode = new DBCenterSimpleConvertArgsWithColorCode();
-        DBCenterSimpleLocation dbCenterSimpleLocation = new DBCenterSimpleLocation();
-    }
-}
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -38,8 +33,8 @@ dependencies {
     </repository>
 </repositories>
 
-<dependency>
-    <groupId>com.github.Balanceakt</groupId>
-    <artifactId>DBCenter</artifactId>
-    <version>Tag</version>
-</dependency>
+	<dependency>
+	    <groupId>com.github.Balanceakt</groupId>
+	    <artifactId>SkyUnixAPIBungeecord</artifactId>
+	    <version>1.0.6</version>
+	</dependency>
