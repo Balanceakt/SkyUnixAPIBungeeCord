@@ -6,7 +6,6 @@ Die SkyUnix Data Management API ist eine Java-Bibliothek, die entwickelt wurde, 
 
 ```java
         SkyUnixHandleDelete simpleDelete = new SkyUnixHandleDelete();
-        SkyUnixHandleLocation simpleLocation = new SkyUnixHandleLocation();
         SkyUnixHandleArgs simpleReadArgs = new SkyUnixHandleArgs();
         SkyUnixHandleUpdate simplUpdateArgs = new SkyUnixHandleUpdate();
         SkyUnixHandleNullCheck simpleNullCheck = new SkyUnixHandleNullCheck();
